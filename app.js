@@ -5,6 +5,7 @@ var express = require('express');
 var middleware = require('./middleware/middleware');
 
 var routes = require('./routes/index');
+var api = require('./api');
 
 var app = express();
 
@@ -17,7 +18,7 @@ app.use(middleware.favicon(app));
 app.use(middleware.logger());
 
 app.use('/', routes);
-app.use('/user', require('./routes/api/user'));
+app.use('/api', api);
 
 app.use(middleware.errorHandler(app));
 

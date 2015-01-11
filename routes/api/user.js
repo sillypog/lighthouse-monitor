@@ -1,9 +1,6 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res) {
+// Hit this through /api/user
+var user =  function(req, res) {
   res.send('Responding from /user');
-});
+};
 
-module.exports = router;
+module.exports = user;
