@@ -4,6 +4,6 @@ var router = express.Router();
 var user = require('./routes/api/user');
 
 /* GET home page. */
-router.get('/user', user);
+router.get('/user/:name', user);
 
 module.exports = router;
