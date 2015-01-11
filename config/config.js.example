@@ -1,0 +1,5 @@
+module.exports = {
+	app: 1,
+	username: 'XXX@XXX.com',
+	password: 'XXX'
+};
