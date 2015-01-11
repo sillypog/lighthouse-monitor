@@ -17,6 +17,7 @@ app.use(middleware.favicon(app));
 app.use(middleware.logger());
 
 app.use('/', routes);
+app.use('/user', require('./routes/api/user'));
 
 app.use(middleware.errorHandler(app));
 
