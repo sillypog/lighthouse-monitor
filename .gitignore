@@ -1,3 +1,4 @@
 expresstemplate/
 node_modules/
 config/config.js
+test.js
