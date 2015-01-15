@@ -3,8 +3,7 @@ var https = require('https');
 var _ = require('underscore'),
     Q = require('q');
 
-var config = require('../config/config'),
-    lighthouse = require('./lighthouse');
+var lighthouse = require('./lighthouse');
 
 function loadTickets(ticketIDs){
   console.log('loadTickets');

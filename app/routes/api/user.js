@@ -3,8 +3,7 @@ var https = require('https');
 var _ = require('underscore'),
     Q = require('q');
 
-var config = require('../../config/config'),
-    lighthouse = require('../../helpers/lighthouse'),
+var lighthouse = require('../../helpers/lighthouse'),
     ticket = require('../../helpers/ticket');
 
 // Hit this through /api/user

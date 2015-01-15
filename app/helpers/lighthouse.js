@@ -4,7 +4,7 @@ var https = require('https'),
 
 var Q = require('q');
 
-var config = require('../config/config');
+var config = require('../../config/config');
 
 var baseURL = '/projects/'+config.app;
 
