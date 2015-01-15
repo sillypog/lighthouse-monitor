@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-var user = require('./routes/api/user');
-var ticket = require('./routes/api/ticket');
+var user = require('./user');
+var ticket = require('./ticket');
 
 /* GET home page. */
-router.get('/user/:name', user);
+router.get('/users', user.index);
+router.get('/user/:name', user.name);
 router.get('/ticket/:id', ticket);
 
 module.exports = router;

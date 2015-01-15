@@ -6,6 +6,19 @@ var _ = require('underscore'),
 var lighthouse = require('../../helpers/lighthouse'),
     ticket = require('../../helpers/ticket');
 
+function index(req, res) {
+  lighthouse.request('memberships')
+    .then(function(data){
+      var jsonData = JSON.parse(data);
+      var names = _.chain(jsonData.memberships)
+        .pluck('membership')
+        .pluck('user')
+        .pluck('name')
+        .value();
+      res.json(names);
+    });
+}
+
 // Hit this through /api/user
 function user(req, res) {
   var name = req.params.name;
@@ -40,4 +53,7 @@ function getTicketNumbers(data){
   return numbers;
 }
 
-module.exports = user;
+module.exports = {
+  index: index,
+  name: user
+};
