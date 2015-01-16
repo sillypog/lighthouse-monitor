@@ -1,7 +1,6 @@
 var path = require('path');
 
 var express = require('express');
-var sass = require('node-sass-middleware');
 
 var middleware = require('./app/middleware/middleware');
 
@@ -17,12 +16,7 @@ app.set('view engine', 'jade');
 // Configure middleware
 app.use(middleware.favicon(app));
 app.use(middleware.logger());
-app.use(sass({
-	src: path.join(__dirname, 'assets', 'scss'),
-	dest: path.join(__dirname, 'public', 'stylesheets'),
-	outputStyle: 'compressed',
-	prefix: '/stylesheets'
-}));
+app.use(middleware.sass());
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'public')));
 
