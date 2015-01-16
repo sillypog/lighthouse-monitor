@@ -16,6 +16,8 @@ app.set('view engine', 'jade');
 // Configure middleware
 app.use(middleware.favicon(app));
 app.use(middleware.logger());
+app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api', api);

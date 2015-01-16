@@ -2,13 +2,13 @@
   "name": "lighthouse-monitor",
   "version": "0.0.0",
   "description": "Lighthouse reports.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sillypog",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "q": "^1.0.1",
     "underscore": "^1.6.0",
