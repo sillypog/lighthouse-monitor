@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 		jadeUsemin: {
 			prod: {
 				options: {
+					targetPrefix: 'public',
 					tasks: {
 						js: ['concat', 'uglify']
 					}
