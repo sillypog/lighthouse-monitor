@@ -1,5 +1,7 @@
 bower_components/
 node_modules/
+app/views/includes/
 public/stylesheets/*.css
+public/js
 config/config.js
 test.js
