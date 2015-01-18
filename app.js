@@ -17,7 +17,6 @@ app.set('view engine', 'jade');
 app.use(middleware.favicon(app));
 app.use(middleware.logger());
 app.use(middleware.sass());
-app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
