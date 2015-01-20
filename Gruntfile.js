@@ -1,29 +1,28 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
-		concat: {
-			options: {
-				separator: ';'
-			}
-		},
-		jadeUsemin: {
-			prod: {
+		asset_packager: {
+			js: {
 				options: {
-					targetPrefix: 'public',
-					tasks: {
-						js: ['concat', 'uglify']
+					js: {
+						includes: 'app/views/includes',
+						source: 'public'
 					}
 				},
-				files: [{
-					src: './assets/includes/main.jade',
-					dest: './app/views/includes/main.jade'
-				}]
+				files: [{src: ['assets/packages/**/*.pkg'], expand: true}]
 			}
-		}
+		},
+		clean: ['app/views/includes', 'public/js']
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-jade-usemin');
+	require('load-grunt-tasks')(grunt);	// Load all the tasks installed via npm.
 
-	grunt.registerTask('default', ['jadeUsemin:prod']);
+	grunt.registerTask('set_config', 'Set a config property', function(name, val){
+		grunt.config.set(name, val);
+	});
+
+	grunt.registerTask('pack', ['clean', 'asset_packager']);
+	grunt.registerTask('dev', ['set_config:mode:DEVELOPMENT', 'pack']);
+	grunt.registerTask('prod', ['set_config:mode:PRODUCTION', 'pack']);
+
+	grunt.registerTask('default', ['dev']);
 };
