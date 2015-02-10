@@ -1,22 +1,11 @@
-var https = require('https');
-
-var _ = require('underscore'),
-    Q = require('q');
-
-var lighthouse = require('../../helpers/lighthouse'),
-    ticket = require('../../helpers/ticket');
+var helper = require('../../helpers/user'),
+    ticket = require('../../helpers/ticket'),
+    lighthouse = require('../../helpers/lighthouse');
 
 function index(req, res) {
-  lighthouse.request('memberships')
-    .then(function(data){
-      var jsonData = JSON.parse(data);
-      var names = _.chain(jsonData.memberships)
-        .pluck('membership')
-        .pluck('user')
-        .pluck('name')
-        .value();
-      res.json(names);
-    });
+  helper.loadUsers().then(function(data){
+    res.json(data);
+  });
 }
 
 // Hit this through /api/user

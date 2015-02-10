@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+var user = require('../helpers/user');
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  //res.send('Welcome to the homepage');
-  res.render('index', { title: 'Express' });
+  user.loadUsers().then(function(users){
+    res.render('index', {title: 'Express', users: users});
+  });
 });
 
 module.exports = router;
