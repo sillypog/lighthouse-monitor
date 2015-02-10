@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter dot --recursive"
   },
   "author": "sillypog",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.7.0",
     "load-grunt-tasks": "^2.0.0",
-    "grunt-contrib-cssmin": "^0.11.0"
+    "grunt-contrib-cssmin": "^0.11.0",
+    "mocha": "^2.1.0"
   }
 }
